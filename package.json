@@ -1,0 +1,24 @@
+{
+  "name": "everride",
+  "version": "1.0.0",
+  "description": "Et code along repo for Node.js",
+  "homepage": "https://github.com/Webudvikler-TechCollege/H1WE080126-dsi-codealong#readme",
+  "bugs": {
+    "url": "https://github.com/Webudvikler-TechCollege/H1WE080126-dsi-codealong/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Webudvikler-TechCollege/H1WE080126-dsi-codealong.git"
+  },
+  "author": "Heinz K",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2"
+  }
+}
