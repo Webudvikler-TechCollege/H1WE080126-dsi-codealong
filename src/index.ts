@@ -1,13 +1,24 @@
-import http, { IncomingMessage, ServerResponse } from 'http'
-const port = 4000
+import express, { Request, Response } from 'express'
+import { carRouter } from './routes/carRouter.js'
+const app = express()
 
+app.use('/cars',carRouter)
 
-const server = http.createServer((request: IncomingMessage, response: ServerResponse) => {
-    response.writeHead(200, { 'Content-Type': 'text/plain' }),
-    response.end('Hello world!');
-    console.log('Server responded')
+/*
+app.get('/', (req: Request, res: Response) => {
+    res.send('Hello world')
 })
 
-server.listen(port, () => {
-    console.log(`Server is running on port http://localhost:${port}`)
+app.get('/about', (req: Request, res: Response) => {
+    res.send('<h1>Om os</h1>')
+})
+*/
+// 404
+app.use((req: Request, res: Response) => {
+    res.send('404 - Siden blev ikke fundet')
+})
+
+
+app.listen(4242, () => {
+    console.log(`Server kører på port http://localhost:4242`)
 })
