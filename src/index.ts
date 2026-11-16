@@ -1,16 +1,20 @@
 import express, { Request, Response } from 'express'
 import { carRouter } from './routes/carRouter.js'
 import dotenv from 'dotenv'
+import { prisma } from './prisma.js'
 dotenv.config()
 const app = express()
 const port = process.env.SERVERPORT || 3000
 
 
-app.use('/cars',carRouter)
-
-app.get('/', (req: Request, res: Response) => {
-    res.send('Hello world')
+app.get('/', async (req: Request, res: Response) => {
+    const data = await prisma.user.findMany()
+    console.log(data);
+    
+    res.send('Hello world') 
 })
+
+app.use('/cars',carRouter)
 
 // 404
 app.use((req: Request, res: Response) => {
