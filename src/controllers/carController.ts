@@ -36,6 +36,24 @@ class CarController {
             console.error(`Fejl i kald af biler: ${error}`);            
         }        
     }
+
+    // Skal oprette en ny bil
+    createRecord = async (req: Request, res: Response) => {
+        // Viser en besked i konsollen indtil videre
+        console.log('Opretter bil')
+    }
+
+    // Skal opdatere en bil
+    updateRecord = async (req: Request, res: Response) => {
+        // Viser en besked i konsollen indtil videre
+        console.log('Opdaterer bil')
+    }
+
+    // Skal slette en bil
+    deleteRecord = async (req: Request, res: Response) => {
+        // Viser en besked i konsollen indtil videre
+        console.log('Sletter bil')
+    }
 }
 
 // Gør controlleren klar til brug i routeren
