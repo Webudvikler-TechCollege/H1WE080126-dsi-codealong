@@ -38,9 +38,30 @@ class CarController {
     }
 
     // Skal oprette en ny bil
-    createRecord = async (req: Request, res: Response) => {
+    createRecord = async (req: Request, res: Response) => {        
         // Viser en besked i konsollen indtil videre
-        console.log('Opretter bil')
+        const { model, brandId } = req.body
+
+        if(!model && !brandId) {
+            console.error('All fields are required')
+        }
+
+        try {
+            const data = await prisma.car.create({
+                data: {
+                    model: model,
+                    brandId: Number(brandId)
+                }
+            })
+
+            res.status(201).json({ 
+                id: data.id,
+                model: data.model
+            })
+        } catch (error) {  
+            console.error(error)
+        }
+        
     }
 
     // Skal opdatere en bil
