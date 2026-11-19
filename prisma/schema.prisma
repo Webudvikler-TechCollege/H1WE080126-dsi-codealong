@@ -25,3 +25,23 @@ model User {
 
   @@map("users")
 }
+
+model Car {
+  id Int @id @default(autoincrement())
+  model String
+  brandId Int
+
+  brand Brand @relation(fields: [brandId], references: [id])
+
+  @@map("cars")
+}
+
+model Brand {
+  id Int @id @default(autoincrement())
+  title String
+  logo String
+
+  cars Car[]
+
+  @@map("brands")
+}
