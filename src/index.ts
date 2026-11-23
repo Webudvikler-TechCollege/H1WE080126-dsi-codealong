@@ -14,7 +14,7 @@ const port = process.env.SERVERPORT ?? 3000
 
 // Opretter Express-appen
 const app = express()
-app.use(express.urlencoded({extended: true}))
+app.use(express.urlencoded({ extended: true}))
 
 // Viser en velkomstbesked på forsiden
 app.get("/", (req: Request, res: Response) => {
