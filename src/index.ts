@@ -5,6 +5,7 @@ import dotenv from 'dotenv'
 // Henter routeren til biler
 import { carRouter } from "./routes/carRouter.js";
 import { prisma } from "./prisma.js";
+import { brandRouter } from "./routes/brandRouter.js";
 
 // Indlæser variablerne fra .env
 dotenv.config()
@@ -20,13 +21,9 @@ app.get("/", (req: Request, res: Response) => {
     res.send('Velkomment til everide')
 })
 
-app.get("/test", async (req: Request, res: Response) => {
-    const data = await prisma.user.findMany()
-    res.json(data)
-})
-
 // Sender requests til /cars videre til bilernes router
 app.use('/cars', carRouter)
+app.use('/brands', brandRouter)
 
 // Viser en besked, hvis ingen route matcher adressen
 app.use((req: Request, res: Response) => {
