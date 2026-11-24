@@ -4,8 +4,8 @@ import express, { Request, Response } from "express";
 import dotenv from 'dotenv'
 // Henter routeren til biler
 import { carRouter } from "./routes/carRouter.js";
-import { prisma } from "./prisma.js";
 import { brandRouter } from "./routes/brandRouter.js";
+import { userRouter } from "./routes/userRouter.js";
 
 // Indlæser variablerne fra .env
 dotenv.config()
@@ -22,6 +22,7 @@ app.get("/", (req: Request, res: Response) => {
 })
 
 // Sender requests til /cars videre til bilernes router
+app.use('/users', userRouter)
 app.use('/cars', carRouter)
 app.use('/brands', brandRouter)
 
