@@ -6,6 +6,7 @@ import dotenv from 'dotenv'
 import { carRouter } from "./routes/carRouter.js";
 import { brandRouter } from "./routes/brandRouter.js";
 import { userRouter } from "./routes/userRouter.js";
+import { authRouter } from "./routes/authRouter.js";
 
 // Indlæser variablerne fra .env
 dotenv.config()
@@ -22,6 +23,7 @@ app.get("/", (req: Request, res: Response) => {
 })
 
 // Sender requests til /cars videre til bilernes router
+app.use('/auth', authRouter)
 app.use('/users', userRouter)
 app.use('/cars', carRouter)
 app.use('/brands', brandRouter)

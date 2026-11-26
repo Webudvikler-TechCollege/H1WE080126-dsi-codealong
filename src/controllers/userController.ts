@@ -21,7 +21,6 @@ class UserController {
         const { password, zipcode, isActive, ...userData } = req.body
 
         const hashedPassword = await bcrypt.hash(password,10)
-        console.log(hashedPassword);
         
         try {
             const data = await prisma.user.create({
